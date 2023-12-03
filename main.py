@@ -1,19 +1,19 @@
 import json
 
-from dict_convert import DictConvert
-from vacancy import Vacancy
-from vacancy_prov_hh import VacancyProvHh
-from vacancy_prov_sj import VacancyProvSj
+from classes.dict_convert import DictConvert
+from vacancy.vacancies import Vacancy
+from vacancy.vacancy_prov_hh import VacancyProvHh
+from vacancy.vacancy_prov_sj import VacancyProvSj
 
 
-def save_vacancy(vacances: list[DictConvert], filename: str):
+def save_vacancy(vacancies: list[DictConvert], filename: str):
     """Созраняет список вакансий в файл"""
-    vacances = [i.get_dict() for i in vacances]
+    vacancies = [i.get_dict() for i in vacancies]
     with open(filename, "w", encoding="utf-8") as file:
-        json.dump(vacances, file, ensure_ascii=False, indent=1)
+        json.dump(vacancies, file, ensure_ascii=False, indent=1)
 
 
-def get_vacancy(query:str)->list[Vacancy]:
+def get_vacancy(query: str) -> list[Vacancy]:
     """Получает вакансии с обеих платформ"""
     result = []
     super_job = VacancyProvSj()
@@ -36,4 +36,4 @@ while True:
 
     user_input = input("Хотите продолжить поиск?(Y-Да, N-Нет.)").lower()
     if user_input.lower() == "n":
-        exit
+        quit()
