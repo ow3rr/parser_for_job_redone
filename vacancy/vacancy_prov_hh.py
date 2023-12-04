@@ -4,8 +4,10 @@ import requests
 from parser_for_job_redone.vacancy.vacancies import Vacancy
 
 class VacancyProvHh(AbstractVacancyProvClass):
+    """Класс, представляющий провайдер вакансий с сайта hh.ru."""
 
     def get_vacancy(self, vacancy_name):
+        """Метод для получения вакансий по названию."""
         res = requests.get("https://api.hh.ru/vacancies", params={"text": vacancy_name},
                            headers={"User-Agent": "SkyPro/1.0(https://github.com/hunkerbek"})
         if res.status_code == 200:

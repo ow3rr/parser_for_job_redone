@@ -2,6 +2,7 @@ from parser_for_job_redone.classes.dict_convert import DictConvert
 
 class Vacancy(DictConvert):
     def get_dict(self):
+        """Метод для получения словаря с информацией о вакансии."""
         return {"title": self.title,
                 "url": self.url,
                 "sallary_to": self.sallary_to,

@@ -30,10 +30,10 @@ while True:
     for i in vacances:
         print(i)
 
-    user_input = input("Сохранить результат?(Y-Да, N-Нет.)").lower()
+    user_input = input("Сохранить результат?(Y-Да, N-Нет.): ").lower()
     if user_input == "y":
         save_vacancy(vacances, "vacancy.json")
 
-    user_input = input("Хотите продолжить поиск?(Y-Да, N-Нет.)").lower()
+    user_input = input("Хотите продолжить поиск?(Y-Да, N-Нет.): ").lower()
     if user_input.lower() == "n":
         quit()

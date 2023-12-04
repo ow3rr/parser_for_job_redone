@@ -5,9 +5,11 @@ from parser_for_job_redone.classes.abstractvacancyprovclass import AbstractVacan
 from parser_for_job_redone.vacancy.vacancies import Vacancy
 
 class VacancyProvSj(AbstractVacancyProvClass):
+    """Класс для получения вакансий через API SuperJob."""
     SJ_API_KEY = os.getenv("SJ_API_KEY")
 
     def get_vacancy(self, vacancy_name):
+        """Получает вакансии по ключевому слову."""
         res = requests.get("https://api.superjob.ru/2.0/vacancies/", params={"keyword": vacancy_name},
                            headers={"X-Api-App-Id": self.SJ_API_KEY})
         if res.status_code == 200:
